@@ -1,14 +1,14 @@
 body{
     padding: .5rem;
     border: 0;
-    background-color: aqua;
-    display: flex;    
+    display: flex;
 }
 
 .container{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 10px;
     font-size: min(3rem, 40px);
     font-family: 'Franklin Gothic Medium';
 }
@@ -16,7 +16,7 @@ body{
 
 .wrapper {
     padding: 1rem;
-    background-color: hsl(0, 0%, 60%);
+    background-color: hsl(0, 0%, 80%);
     border-radius: 1vmax;
     width: 100%;
     max-width: 31.25rem;
@@ -32,10 +32,12 @@ body{
   }
   
   .searchBar {
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-direction: row;
     align-items: center;
+    padding-bottom: 10px;
+
   }
   
   #searchQueryInput {

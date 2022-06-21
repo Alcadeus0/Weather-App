@@ -1,10 +1,7 @@
+import Img from "./imgs/bg-img.jpg"
+import {cityName, description, temp, speed, humidity} from "./data.js"
 
-const cityName = document.querySelector('.name');
-const description = document.querySelector('.description');
-const temp = document.querySelector('.temperature');
-const speed = document.querySelector('.speed');
-const humidity = document.querySelector('.humidity');
-
+document.body.style.backgroundImage = "url(" + Img + ")";
 
 async function getWeather(location){
     const response = await fetch("https://api.openweathermap.org/data/2.5/weather?q="+ 
@@ -15,9 +12,10 @@ async function getWeather(location){
     const windSpeed = data.wind.speed;
     const weatherDescription = data.weather[0].description;
     const temperature = data.main.temp;
-    const humidity = data.main.humidity;
+    const humid = data.main.humidity;
         
-    results (name, windSpeed, weatherDescription, temperature, humidity)
+    results (name, windSpeed, weatherDescription, temperature, humid)
+    console.log(name, windSpeed, weatherDescription, temperature, humid)
 }
 
 
@@ -28,23 +26,6 @@ function results(n , ws, wd, t, h){
     speed.textContent = "Wind Speed: " + ws + "km/h";
     humidity.textContent = "Humidity: " +  h + "%";
 }
-
-/*
-if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition(coordinates);
-}
-else{
-    console.log("error");
-}
-
-function coordinates(position){
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude;   
-    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=ea0124442c7e8a80a8100feb797f78b7`)
-    .then(function(response){
-        console.log(response.json());
-    });
-}*/
 
 const search = document.querySelector('#searchQueryInput');
 const button = document.querySelector('#searchQuerySubmit');
